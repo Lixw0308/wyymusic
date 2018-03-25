@@ -1,7 +1,8 @@
-<<<<<<< HEAD
 body {
     display: flex;
     flex-direction: column;
+    background: #f2f4f5;
+    font-family: "思源黑体";
 }
 
 .header {
@@ -49,44 +50,39 @@ body {
 .header .right {
     height: 100%;
     width: 1rem;
-=======
-body{
-    display: flex;
-    flex-direction: column;
-    background: #f2f4f5;
-    font-family: "思源黑体";
 }
-.header{
-    height:  4rem;
-    background: red;
-}
-.main{
+
+.main {
     flex: 1;
     display: flex;
     flex-direction: column;
 }
-.aaa{
-    height:100px;
+
+.aaa {
+    height: 100px;
 }
-.wrap{
-   flex: 1;
-    border-top: 2px solid  rgba(0, 0, 0, .1);
-    border-top: 2px solid  rgba(0, 0, 0, .1);
+
+.wrap {
+    flex: 1;
+    border-top: 2px solid rgba(0, 0, 0, .1);
+    border-top: 2px solid rgba(0, 0, 0, .1);
     width: 100%;
 }
-.remd{
+
+.remd {
     padding-top: .4rem;
 }
-.remd_t{
+
+.remd_t {
     position: relative;
     font-size: 17px;
     padding-left: .18rem;
     height: .4rem;
     line-height: .4rem;
-    margin-bottom:.28rem;
-  
+    margin-bottom: .28rem;
 }
-.remd >.remd_t::after{
+
+.remd>.remd_t::after {
     content: "";
     position: absolute;
     width: .04rem;
@@ -96,41 +92,48 @@ body{
     transform: translateY(-50%);
     background: #d33a31;
 }
-.remd > .remd_songs{
+
+.remd>.remd_songs {
     position: relative;
 }
-.remd_songs > .remd_ul{
-    padding-bottom:.32rem;
+
+.remd_songs>.remd_ul {
+    padding-bottom: .32rem;
     display: flex;
     width: 100%;
     height: 3.6rem;
 }
-.remd_ul > .remd_li{
+
+.remd_ul>.remd_li {
     display: inline-block;
-    flex:1;
+    flex: 1;
     box-sizing: border-box;
     padding-left: .02rem;
     padding-right: .02rem;
     width: 123px;
 }
-.remd_ul > .remd_li:first-child{
+
+.remd_ul>.remd_li:first-child {
     padding-left: 0;
     padding-right: .04rem;
 }
-.remd_ul > .remd_li:last-child{
+
+.remd_ul>.remd_li:last-child {
     padding-right: 0;
     padding-left: .04rem;
 }
-.remd_li > .remd_img{
+
+.remd_li>.remd_img {
     position: relative;
 }
-.remd_img >img{
+
+.remd_img>img {
     width: 2.46rem;
     height: 2.46rem;
     background: bisque;
 }
 
-.remd_img > .u_earp{
+.remd_img>.u_earp {
     position: absolute;
     right: .1rem;
     top: .04rem;
@@ -142,86 +145,95 @@ body{
     background-position: 0;
     background-size: .22rem .2rem;
 }
-.remd_li > .remd_text{ 
+
+.remd_li>.remd_text {
     overflow: hidden;
     font-size: 13px;
     line-height: 1.2;
     display: -webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     padding: .12rem .04rem 0 .12rem;
-} 
-.music_name{
+}
+
+.music_name {
     font-size: 13px;
     line-height: 1.2;
     color: #310200;
 }
-.music_per{
+
+.music_per {
     font-size: 13px;
     line-height: 1.2;
     color: #ffe3de;
 }
-.news{
+
+.news {
     padding-left: .1rem;
 }
-.news_list >li{
-    border-top: 2px solid  rgba(0, 0, 0, .1);
+
+.news_list>li {
+    border-top: 2px solid rgba(0, 0, 0, .1);
 }
-.news_wrap{
+
+.news_wrap {
     display: flex;
 }
-.news_wrap > .left{
+
+.news_wrap>.left {
     flex: 1;
     display: flex;
     flex-direction: column;
     padding-top: .3rem;
     padding-left: .2rem;
 }
-.news_wrap > .right{
 
-}
-.news_wrap > .right >img{
+.news_wrap>.right {}
+
+.news_wrap>.right>img {
     width: 2rem;
     height: 2rem;
     background: red;
 }
-.news_wrap > .left p{
-    flex:1;
+
+.news_wrap>.left p {
+    flex: 1;
     position: relative;
     font-size: 14px;
     text-indent: 2.5em;
-  
     line-height: 1.4;
     padding-right: 1.2rem;
 }
-.news_wrap > .left p >i{
+
+.news_wrap>.left p>i {
     position: absolute;
     display: inline-block;
     font-size: 10px;
     color: red;
-    border: .04rem solid  red;
+    border: .04rem solid red;
     text-indent: 0;
     left: 0;
-  
 }
-.news_wrap > .left span{
-   
+
+.news_wrap>.left span {
     font-size: 12px;
     color: #ccc;
-    padding-bottom:.2rem;
+    padding-bottom: .2rem;
 }
-.footer{
+
+.footer {
     height: 1.2rem;
     text-align: center;
 }
-.footer span{
+
+.footer span {
     font-size: 16px;
     border-radius: .8rem;
-    width:33%;
+    width: 33%;
     border: 1px solid #ccc;
     text-align: center;
     display: inline-block;
     height: .8rem;
     line-height: .8rem;
->>>>>>> 4109e3e229b9f5bc0d89e680c059cf2538d0ee1d
+    >>>>>>>4109e3e229b9f5bc0d89e680c059cf2538d0ee1d
 }
