@@ -2,7 +2,9 @@ body {
     display: flex;
     flex-direction: column;
     background: #f2f4f5;
-    font-family: "思源黑体";
+    font-family: 微软雅黑;
+	width: 100%;
+	overflow: hidden;
 }
 
 .header {
@@ -10,13 +12,13 @@ body {
     background: #ce3d3a;
     width: 100%;
     display: flex;
+    line-height: 1rem;
 }
 
 .header .left {
     width: 1rem;
     height: 100%;
     color: #fff;
-    line-height: 1rem;
     text-align: center;
 }
 
@@ -31,7 +33,6 @@ body {
 }
 
 .header .mid .ico-wrapper {
-    line-height: 1rem;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -52,18 +53,25 @@ body {
     width: 1rem;
 }
 
+.header .right i {
+    font-size: 0.5rem;
+    display: block;
+    color: #fff;
+}
+
 .main {
     flex: 1;
-    display: flex;
-    flex-direction: column;
+    height: 0;
+    overflow-y: scroll;
 }
-
-.aaa {
-    height: 100px;
+.main .swiper-container {
+    height: 2.9rem;
+    overflow: hidden;
 }
-
+.main .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+    background: red;
+}
 .wrap {
-    flex: 1;
     border-top: 2px solid rgba(0, 0, 0, .1);
     border-top: 2px solid rgba(0, 0, 0, .1);
     width: 100%;
@@ -221,12 +229,7 @@ body {
     padding-bottom: .2rem;
 }
 
-.footer {
-    height: 1.2rem;
-    text-align: center;
-}
-
-.footer span {
+.fit {
     font-size: 16px;
     border-radius: .8rem;
     width: 33%;
@@ -235,5 +238,44 @@ body {
     display: inline-block;
     height: .8rem;
     line-height: .8rem;
-    >>>>>>>4109e3e229b9f5bc0d89e680c059cf2538d0ee1d
+}
+.footer {
+    height: .9rem;
+    background: #fff;
+    padding: .1rem;
+    display: flex;
+}
+.footer .head-img {
+    float: left;
+    height: 0.7rem;
+    width: 0.7rem;
+    background: #000;
+}
+.footer .info {
+    flex: 1;
+    margin-left: 0.1rem;
+}
+.footer .info .name {
+    margin-top: 0.1rem;
+    color: #030303;
+    font-size: .26rem;
+}
+.footer .info .author {
+    color: #7e7e7c;
+    font-size: .2rem;
+    margin-top: 0.1rem;
+}
+.footer .right {
+    width: 1.3rem;
+    line-height: 0.7rem;
+}
+.footer .right i {
+   display: block; 
+   color: #2c2d2c;
+   font-size: 0.5rem;
+   float: left;
+   height: 0.7rem;
+}
+.footer .right i.play {
+    margin-right: 0.2rem;
 }
