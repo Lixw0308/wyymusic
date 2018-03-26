@@ -43,6 +43,17 @@
             </div>
             <div class="swiper-pagination"></div>
         </div>
+        <div class="tools">
+            <ul class="tools-list">
+                <li class="item">
+                    <i class="iconfont"></i>
+                    <span class="name">私人FM</span>
+                </li>
+                <li class="item"></li>
+                <li class="item"></li>
+                <li class="item"></li>
+            </ul>
+        </div>
         <div class="wrap">
             <div class="remd">
                 <h2 class="remd_t">推荐歌单 ></h2>
@@ -230,9 +241,8 @@
                     </li>
                 </ul>
             </div>
-
         </div>
-        <span class="fit"></span>
+        <div class="fit"><span class="fit-text">调整栏目顺序</span></div>
     </section>
     <footer class="footer">
         <div class="head-img">
@@ -260,6 +270,20 @@
         loop: true,
         autoplay: true
     });
+    (function () {
+        $('.fit .fit-text').on('touchstart',function(){
+            $(this).css({
+                background: '#ce3d3a',
+                color: '#fff'
+            });
+            
+        }).on('touchend',function () {
+            $(this).css({
+                background: '',
+                color: '#ce3d3a'
+            });
+        })
+    })();
 </script>
 
 </html>

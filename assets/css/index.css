@@ -71,9 +71,36 @@ body {
 .main .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
     background: red;
 }
+.main .tools {
+    height: 2rem;
+    width: 100%;
+}
+.main .tools .tools-list {
+    display: flex;
+    height: 100%;
+}
+.main .tools .item {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+}
+.main .tools .item i {
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    border-radius: .5rem;
+    border: 1px solid #ce3d3a;
+    margin-top: 0.3rem;
+    margin-bottom: 0.1rem;
+}
+.main .tools .item .name {
+    font-size: 0.25rem;
+    color: #333;
+    display: block;
+}
 .wrap {
-    border-top: 2px solid rgba(0, 0, 0, .1);
-    border-top: 2px solid rgba(0, 0, 0, .1);
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    border-top: 1px solid rgba(0, 0, 0, .1);
     width: 100%;
 }
 
@@ -228,16 +255,19 @@ body {
     color: #ccc;
     padding-bottom: .2rem;
 }
-
 .fit {
+    text-align: center;
+}
+.fit .fit-text {
     font-size: 16px;
     border-radius: .8rem;
     width: 33%;
-    border: 1px solid #ccc;
+    border: 1px solid #ce3d3a;
     text-align: center;
     display: inline-block;
     height: .8rem;
     line-height: .8rem;
+    color: #ce3d3a;
 }
 .footer {
     height: .9rem;
