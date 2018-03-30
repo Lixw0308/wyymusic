@@ -57,6 +57,7 @@ body {
     font-size: 0.5rem;
     display: block;
     color: #fff;
+    text-align: center;
 }
 
 .main {
@@ -92,6 +93,9 @@ body {
     border: 1px solid #ce3d3a;
     margin-top: 0.3rem;
     margin-bottom: 0.1rem;
+    line-height: 1rem;
+    color: #ce3d3a;
+    font-size: 0.5rem;
 }
 .main .tools .item .name {
     font-size: 0.25rem;
