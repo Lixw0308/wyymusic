@@ -4,7 +4,7 @@ var New_song = (function() {
     }
 
     //全局变量当前是否在播放
-    var palyer_status = "stop";
+
     var left_span = $("#scroll_box").offset().left;
     var scroll_box_width = $("#scroll_box").width() / 100;
     var left_span_width = $(".now_time").width() / 100;
@@ -26,15 +26,19 @@ var New_song = (function() {
             var now = this;
 
             if (audio_all != null && palyer_status == "play") {
+                // $(".card_2").removeClass("revolve");
+                // $(".card_2").addClass("ainimation_reset");
                 audio_all.pause();
                 audio_all.currentTime = 0;
                 clearInterval(timer);
                 audio_all = this.a_new_song(this.song_name, now, this.song_url);
+                $(".card_2").addClass("revolve");
                 this.drag(now, audio_all);
                 this.scroll_ball_drag(now, audio_all);
                 this.play_a_song(audio_all, now);
                 this.play_song_button(now, audio_all);
             } else if (audio_all != null && palyer_status == "stop") {
+
                 audio_all = this.a_new_song(this.song_name, now, this.song_url);
                 audio_all.currentTime = 0;
                 clearInterval(timer);
@@ -132,13 +136,14 @@ var New_song = (function() {
                     palyer_status = "stop";
                     $(this).removeClass('stop_a_song');
                     $(this).addClass('play_a_song');
-                    $(".card_2").removeClass('revolve');
+                    $(".card_2").addClass("ainimation_stop");
                     now.play_a_song(now_audio, now);
                 } else if (palyer_status == "stop") {
                     palyer_status = "play";
                     $(this).removeClass('play_a_song');
                     $(this).addClass('stop_a_song');
-                    $(".card_2").addClass('revolve');
+                    $(".card_2").addClass("revolve");
+                    $(".card_2").removeClass("ainimation_stop");
                     now.play_a_song(now_audio, now);
                 }
             })
@@ -210,14 +215,14 @@ var New_song = (function() {
 })();
 
 var song_a = new New_song({
-    song_url: "http://yyrfile.qianqian.com/7a351f199abb85115a2734cd940b8f43.mp3",
+    song_url: "./assets/music/九九八十一.mp3",
     song_name: "九九八十一",
     song_singger: "双笙",
     song_pic: "http://p1.music.126.net/NbBSu6EjFWTX1yvTTF2Sjg==/17699938184287815.jpg?param=130y130"
 
 });
 var song_b = new New_song({
-    song_url: "http://m10.music.126.net/20180331190151/e5ccb0e2306020d2c7dde0652ccddb5a/ymusic/2b72/ddb6/3c36/cec43904bcc73074674bee41bc301c6a.mp3",
+    song_url: "./assets//music/马步遥.mp3",
     song_name: "马步遥",
     song_singger: "双笙",
     song_pic: "http://p1.music.126.net/x5hyKGsC3YUC38dkk7d73w==/109951163116870505.jpg?param=130y130"
@@ -239,11 +244,16 @@ var song_b = new New_song({
 // });
 song_a.install();
 var i = 0;
+var palyer_status = "stop";
 $(".next_song").unbind('click').on('click', function() {
     i++;
     if (i > 1) {
         i = 0;
     }
+    $(".card_2").removeClass("revolve");
+    // if (palyer_status == "play") {
+    //     $(".card_2").addClass("restart");
+    // }
     change_song(i);
 })
 $(".last_song").unbind('click').on('click', function() {
@@ -251,6 +261,7 @@ $(".last_song").unbind('click').on('click', function() {
     if (i < 0) {
         i = 1;
     }
+    $(".card_2").removeClass("revolve");
     change_song(i);
 })
 
@@ -266,3 +277,6 @@ function change_song(i) {
             break;
     }
 }
+// $(".test").animate({
+
+// })

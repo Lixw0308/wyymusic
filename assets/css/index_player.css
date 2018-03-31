@@ -199,6 +199,20 @@ footer {
     animation: animtran 16s linear infinite;
 }
 
+.restart {
+    animation: animtran 16s linear infinite;
+}
+
+.ainimation_stop {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+    /* Safari 和 Chrome */
+}
+
+.ainimation_reset {
+    transform: rotateZ(0deg);
+}
+
 #controler_ul {
     width: 100%;
     height: 100%;
@@ -265,3 +279,13 @@ footer {
     width: 0;
     height: 0;
 } */
+
+.test {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    background-color: red;
+    left: 2rem;
+    top: 3rem;
+    z-index: 999;
+}
