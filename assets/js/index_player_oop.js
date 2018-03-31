@@ -18,6 +18,7 @@ var New_song = (function() {
             this.song_name = option.song_name;
             this.song_singger = option.song_singger;
             this.song_pic = option.song_pic;
+            this.song_url = option.song_url;
             // this.install();
         },
         //主函数入口
@@ -28,13 +29,13 @@ var New_song = (function() {
                 audio_all.pause();
                 audio_all.currentTime = 0;
                 clearInterval(timer);
-                audio_all = this.a_new_song(this.song_name, now);
+                audio_all = this.a_new_song(this.song_name, now, this.song_url);
                 this.drag(now, audio_all);
                 this.scroll_ball_drag(now, audio_all);
                 this.play_a_song(audio_all, now);
                 this.play_song_button(now, audio_all);
             } else if (audio_all != null && palyer_status == "stop") {
-                audio_all = this.a_new_song(this.song_name, now);
+                audio_all = this.a_new_song(this.song_name, now, this.song_url);
                 audio_all.currentTime = 0;
                 clearInterval(timer);
                 this.chenge_scroll_ball_position(0);
@@ -45,7 +46,7 @@ var New_song = (function() {
                 this.play_a_song(audio_all, now);
                 this.play_song_button(now, audio_all);
             } else if (audio_all == null) {
-                audio_all = this.a_new_song(this.song_name, now);
+                audio_all = this.a_new_song(this.song_name, now, this.song_url);
                 this.play_song_button(now, audio_all);
                 this.drag(now, audio_all);
                 this.scroll_ball_drag(now, audio_all);
@@ -56,8 +57,9 @@ var New_song = (function() {
         },
 
         //添加一首歌函数
-        a_new_song: function(song_name, now) {
-            audio_all = new Audio('./assets/music/' + song_name + '.mp3 ');
+        a_new_song: function(song_name, now, song_url) {
+            // audio_all = new Audio('./assets/music/' + song_name + '.mp3 ');
+            audio_all = new Audio('' + song_url + ' ');
             $("h5").html(this.song_name);
             $("h6").html(this.song_singger);
             $("#back").css({
@@ -78,7 +80,7 @@ var New_song = (function() {
                 // $(".card_2").removeClass('revolve');
                 clearInterval(timer);
                 i++;
-                if (i > 4) {
+                if (i > 1) {
                     i = 0;
                 };
                 change_song(i);
@@ -208,36 +210,38 @@ var New_song = (function() {
 })();
 
 var song_a = new New_song({
+    song_url: "http://yyrfile.qianqian.com/7a351f199abb85115a2734cd940b8f43.mp3",
     song_name: "九九八十一",
     song_singger: "双笙",
-    song_pic: "./assets/images/九九八十一.jpg"
+    song_pic: "http://p1.music.126.net/NbBSu6EjFWTX1yvTTF2Sjg==/17699938184287815.jpg?param=130y130"
 
 });
 var song_b = new New_song({
+    song_url: "http://m10.music.126.net/20180331190151/e5ccb0e2306020d2c7dde0652ccddb5a/ymusic/2b72/ddb6/3c36/cec43904bcc73074674bee41bc301c6a.mp3",
     song_name: "马步遥",
     song_singger: "双笙",
-    song_pic: "./assets/images/马步遥.jpg"
+    song_pic: "http://p1.music.126.net/x5hyKGsC3YUC38dkk7d73w==/109951163116870505.jpg?param=130y130"
 });
-var song_c = new New_song({
-    song_name: "万神纪",
-    song_singger: "海鲜面",
-    song_pic: "./assets/images/万神纪.jpg"
-});
-var song_d = new New_song({
-    song_name: "逆浪千秋",
-    song_singger: "言和",
-    song_pic: "./assets/images/逆浪千秋.jpg"
-});
-var song_e = new New_song({
-    song_name: "锦鲤抄",
-    song_singger: "银临",
-    song_pic: "./assets/images/锦鲤抄.jpg"
-});
+// var song_c = new New_song({
+//     song_name: "万神纪",
+//     song_singger: "海鲜面",
+//     song_pic: "./assets/images/万神纪.jpg"
+// });
+// var song_d = new New_song({
+//     song_name: "逆浪千秋",
+//     song_singger: "言和",
+//     song_pic: "./assets/images/逆浪千秋.jpg"
+// });
+// var song_e = new New_song({
+//     song_name: "锦鲤抄",
+//     song_singger: "银临",
+//     song_pic: "./assets/images/锦鲤抄.jpg"
+// });
 song_a.install();
 var i = 0;
 $(".next_song").unbind('click').on('click', function() {
     i++;
-    if (i > 4) {
+    if (i > 1) {
         i = 0;
     }
     change_song(i);
@@ -245,7 +249,7 @@ $(".next_song").unbind('click').on('click', function() {
 $(".last_song").unbind('click').on('click', function() {
     i--;
     if (i < 0) {
-        i = 4;
+        i = 1;
     }
     change_song(i);
 })
@@ -257,15 +261,6 @@ function change_song(i) {
             break;
         case 1:
             song_b.install();
-            break;
-        case 2:
-            song_c.install();
-            break;
-        case 3:
-            song_d.install();
-            break;
-        case 4:
-            song_e.install();
             break;
         default:
             break;

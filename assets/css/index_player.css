@@ -2,18 +2,10 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    background-image: url(../images/480_800过场.png);
+    /* background-image: url(../images/480_800过场.png); */
     background-size: cover;
-}
-
-.test {
-    position: absolute;
-    width: 2rem;
-    height: 2rem;
-    background-color: rebeccapurple;
-    top: 0;
-    left: 0;
-    z-index: 999;
+    overflow: hidden;
+    background-position: center;
 }
 
 #back {
@@ -22,9 +14,6 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    /* background: url(../images/480_800过场.png); */
-    /* background-color: bisque; */
-    /* background-size: cover; */
     filter: blur(8px);
     z-index: -2;
 }
@@ -81,6 +70,7 @@ header {
     flex: 1;
     width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 footer {
@@ -148,14 +138,14 @@ footer {
 
 .now_time {
     position: absolute;
-    top: .2rem;
-    left: .3rem;
+    top: .15rem;
+    left: .25rem;
 }
 
 .all_time {
     position: absolute;
-    top: .2rem;
-    right: .3rem;
+    top: .15rem;
+    right: .25rem;
 }
 
 #control {
