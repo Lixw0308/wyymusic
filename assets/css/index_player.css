@@ -72,7 +72,31 @@ header {
     position: relative;
     overflow: hidden;
 }
-
+#inner_body .play-bar {
+    position: absolute;
+    height: 2.5rem;
+    width: 3.5rem;
+    left: 50%;
+    top: 0;
+    background: url(../images/mscbar.png) no-repeat;
+    background-position: -.32rem 0rem;
+    background-size: 90%;
+    transition: .8s .4s;
+    transform-origin: 0 0;
+    z-index: 3;
+}
+#inner_body .play-bar::after {
+    content: "";
+    height: 0.6rem;
+    width: 0.6rem;
+    background: #666;
+    border-radius: 50%;
+    position: absolute;
+    left: -0.3rem;
+    top: -0.3rem;
+    border: .15rem solid #fff;
+    box-sizing: border-box;
+}
 footer {
     width: 100%;
     height: 2.6rem;
