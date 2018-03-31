@@ -134,12 +134,14 @@ var New_song = (function() {
             $(".button_play_a_song").unbind('click').on("click", play_a_song_button_function = function() {
                 if (palyer_status == "play") {
                     palyer_status = "stop";
+                    oBar.style.transform = 'rotate(0deg)';
                     $(this).removeClass('stop_a_song');
                     $(this).addClass('play_a_song');
                     $(".card_2").addClass("ainimation_stop");
                     now.play_a_song(now_audio, now);
                 } else if (palyer_status == "stop") {
                     palyer_status = "play";
+                    oBar.style.transform = 'rotate(20deg)';
                     $(this).removeClass('play_a_song');
                     $(this).addClass('stop_a_song');
                     $(".card_2").addClass("revolve");
@@ -245,6 +247,8 @@ var song_b = new New_song({
 song_a.install();
 var i = 0;
 var palyer_status = "stop";
+var oBar = document.querySelector('.play-bar');
+
 $(".next_song").unbind('click').on('click', function() {
     i++;
     if (i > 1) {
