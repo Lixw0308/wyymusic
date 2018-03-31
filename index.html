@@ -81,7 +81,7 @@
         </div>
         <div class="wrap">
             <div class="remd"></div>
-            <div class="remd"></div>
+            <div class="remd aaa"></div>
             <div class="remd"></div>
             <div class="news remd"></div>
         </div>
@@ -141,18 +141,18 @@
         }  
         obj.prototype.getData=function(){
                 var _this=this;
-                  ajax({
-                    url:'/info',
+                  $.ajax({
+                    url:'http://127.0.0.1/wyymusic/server/server.php',
                     dataType:"json",
                     type:'get',
                     data:{
                         "id": _this.id,
                     },
                     success:function(str){
-                       console.log(str);
-                    var json= eval('('+str+')');    
-                        console.log(json);
-                    _this.insert(json);
+                       //console.log(str);
+                    //var json= eval('('+str+')');    
+                        //console.log(json);
+                    _this.insert(str);
                     },
                     error:function(err){
                        
