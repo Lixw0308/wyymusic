@@ -21,25 +21,29 @@
         <h2>最新音乐</h2>
     </div>
     
-    <div class="nav">
+    <div class="nav" id="wrapper">
         <ul>
-            <li><a href="#">推荐</a></li>
-            <li><a href="#">华语</a></li>
-            <li><a href="#">欧美</a></li>
-            <li><a href="#">韩国</a></li>
-            <li><a href="#">日本</a></li>
+            <li>推荐</li>
+            <li>华语</li>
+            <li>欧美</li>
+            <li>韩国</li>
+            <li>日本</li>
         </ul>
     </div>
     <div class="main">
    
-        <div class="zxt">
-        	<img src="./assets/images/znl_zxt.jpg"/>
+        <div class="zxt" id="zxt">
+			<img class="xianshi" src="./assets/images/zxt_01.jpg"/>
+			<img src="./assets/images/zxt_02.jpg"/>
+			<img src="./assets/images/zxt_03.jpg"/>
+			<img src="./assets/images/zxt_04.jpg"/>
+			<img src="./assets/images/zxt_05.jpg"/>
     	</div>
         
-        <div class="list">
+        <div class="list" id="gequ">
         	<ul>
-            	<li class="button">
-                	<a href="#" class="bofang_01">
+            	<li>
+                	<a href="index_player.html">
                     	<div class="list-left">
                         	<img src="./assets/images/znl_01.jpg" />
                     	</div>
@@ -50,7 +54,7 @@
                 	</a>
             	</li>
             	<li>
-                	<a href="#">
+                	<a href="index_player.html">
                    		<div class="list-left">
                         	<img src="./assets/images/znl_02.jpg" />
                     	</div>
@@ -59,9 +63,11 @@
                         	<p>陈粒-餐桌上的日常</p>
                     	</div> 
                 	</a> 
-            	</li>
+				</li>
+			</ul>
+			<ul>	
             	<li>
-                	<a href="#">
+                	<a href="index_player.html">
                     	<div class="list-left">
                         	<img src="./assets/images/znl_03.jpg" />
                     	</div>
@@ -72,7 +78,7 @@
                 	</a>    
             	</li>
             	<li>
-                	<a href="#">
+                	<a href="index_player.html">
                     	<div class="list-left">
                         	<img src="./assets/images/znl_04.jpg" />
                     	</div>
@@ -81,9 +87,11 @@
                         	<p>蔡琴-永远的微笑</p>
                     	</div> 
                 	</a>    
-            	</li>
+				</li>
+			</ul>
+			<ul>
             	<li>
-                	<a href="#">
+                	<a href="index_player.html">
                     	<div class="list-left">
                         	<img src="./assets/images/znl_05.jpg" />
                     	</div>
@@ -94,7 +102,7 @@
                 	</a>    
             	</li>
             	<li>
-                	<a href="#">
+                	<a href="index_player.html">
                     	<div class="list-left">
                         	<img src="./assets/images/znl_06.jpg" />
                     	</div>
@@ -103,9 +111,11 @@
                         	<p>周华健-流浪的终点</p>
                     	</div> 
                 	</a>    
-            	</li>
+				</li>
+			</ul>
+			<ul>
             	<li>
-                	<a href="#">
+                	<a href="index_player.html">
                     	<div class="list-left">
                         	<img src="./assets/images/znl_07.jpg" />
                     	</div>
@@ -116,7 +126,7 @@
                 	</a>    
 				</li>
 				<li>
-					<a href="#">
+					<a href="index_player.html">
 						<div class="list-left">
 							<img src="./assets/images/znl_08.jpg" />
 						</div>
@@ -126,8 +136,10 @@
 						</div> 
 					</a>    
 				</li>
+			</ul>
+			<ul>
 				<li>
-					<a href="#">
+					<a href="index_player.html">
 						<div class="list-left">
 							<img src="./assets/images/znl_09.jpg" />
 						</div>
@@ -140,12 +152,40 @@
         	</ul>
     	</div>  
 	</div>
-    
+	
     <script src="assets/js/jquery-1.10.2.js"></script>
 	<script src="assets/js/iscroll.js"></script>
 	
 	<script>
-		$(".list .button")
+		var curIndex = 0;
+	
+		var aLiList = document.querySelectorAll('#wrapper li');
+
+		var aUlList = document.querySelectorAll('#gequ ul');
+
+		var aImgList = document.querySelectorAll('#zxt img')
+		
+		document.getElementById('wrapper').onclick = function(ev){
+            var oTarget = ev.target;
+            if (oTarget.nodeName == 'LI'){
+                console.log(oTarget)
+                var v = $(oTarget).index();
+                if (v == curIndex){
+                    return;
+                }
+                curIndex = v;
+                cutStyle();
+            }
+        };
+
+		cutStyle();
+
+		function cutStyle(){
+            $(aLiList[curIndex]).addClass('selected').siblings().removeClass('selected');
+			$(aUlList[curIndex]).addClass('display').siblings().removeClass('display');
+			$(aImgList[curIndex]).addClass('xianshi').siblings().removeClass('xianshi');
+		}
+		
 	</script>
 </body>
 </html>

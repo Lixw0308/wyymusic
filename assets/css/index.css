@@ -29,15 +29,18 @@ body {
 .nav ul{
     display: flex;
 }
-.nav ul li a{
-    font-size: .45rem;
-}
 .nav ul li{
-    /* line-height: 1.2rem; */
     height: 1.3rem;
     text-align: center;
+    font-size: .45rem;
+    line-height: 1.3rem;
     flex: 1;
     float: left;
+    /* border-bottom: .06rem solid red; */
+}
+.nav ul li.selected{
+    color: red;
+    border-bottom: .06rem solid red;
 }
 
 .zxt{
@@ -46,12 +49,23 @@ body {
     margin-bottom: .2rem;
 }
 .zxt img{
+    display: none;
+    width: 100%;
     flex: 1;
     height: 2.98rem;
+}
+.zxt .xianshi{
+    display: block;
 }
 
 .list{
     height: auto;
+}
+.list ul{
+    display: none;
+}
+.list .display{
+    display: block;
 }
 .list ul li{
     height: 1.2rem;
