@@ -1,0 +1,129 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    height: 1.5rem;
+    background: red;
+    line-height: 1.5rem;
+    position: relative;
+    
+}
+.header a{
+    float: left;
+}
+.header img{
+    width: 1.0rem;
+    height: 1.0rem;
+    margin-right: .4rem;
+    margin-top: .2rem;
+}
+.header h2{
+    font-size: .5rem;
+    /* float: left; */
+}
+
+.nav{
+    height: 1.3rem;
+}
+.nav ul{
+    display: flex;
+}
+.nav ul li{
+    height: 1.3rem;
+    text-align: center;
+    font-size: .45rem;
+    line-height: 1.3rem;
+    flex: 1;
+    float: left;
+    /* border-bottom: .06rem solid red; */
+}
+.nav ul li.selected{
+    color: red;
+    border-bottom: .06rem solid red;
+}
+
+.zxt{
+    display: flex;
+    height: 2.98rem;
+    margin-bottom: .2rem;
+}
+.zxt img{
+    display: none;
+    width: 100%;
+    flex: 1;
+    height: 2.98rem;
+}
+.zxt .xianshi{
+    display: block;
+}
+
+.list{
+    height: auto;
+}
+.list ul{
+    display: none;
+}
+.list .display{
+    display: block;
+}
+.list ul li{
+    height: 1.2rem;
+    border-top: .005rem solid #ecedef;
+}
+.list ul li a{
+    width: auto;
+    height: auto;
+}
+.list ul li .list-left{ 
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: .2rem;
+    float: left;
+}
+.list ul li .list-left img{
+    width: 1.0rem;
+    height: 1.0rem;
+    margin-left: .1rem;
+    margin-top: .1rem;
+}
+.list ul li .list-right{
+    width: calc(100% - 1.4rem);
+    height: 1.2rem;
+    float: left;
+    position: relative;
+}
+.list ul li h5{
+    font-size: .4rem;
+    font-weight: bold;
+    position: absolute;
+    top: .2rem;
+}
+.list ul li p{
+
+    font-size: .2rem;
+    position: absolute;
+    bottom: .2rem;
+}
+
+
+.swiper-slide > img {
+    max-width: 100%;
+}
+.swiper-pagination > span {
+    border-radius: 0;
+    width: .3rem;
+    height: 2px;
+}
+.swiper-pagination-bullet-active {
+    background: #ff6868;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 1px;
+}
+
+.main {
+    flex: 1;
+    height: 0;
+    overflow-y: scroll;
+}
