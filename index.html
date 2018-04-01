@@ -31,32 +31,7 @@
     </header>
     <section class="main">
         <div class="swiper-container" id="swiper1">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="http://p1.music.126.net/hCzuP6QOvWc6T3irijp3zw==/109951163213915707.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="http://p1.music.126.net/2d_gTxI1zsWa0wmNz3DSNw==/109951163213468979.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="http://p1.music.126.net/FY2YmzSEnTYgP-Q-6yKzKQ==/109951163214196078.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="http://p1.music.126.net/oH2YsSkCuKzd1tOkwU0QlQ==/109951163213906153.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="http://p1.music.126.net/okVWcB8SV0nm3nEeJk97Bw==/109951163213994815.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="http://p1.music.126.net/KHbdnVVMCLCzZYGNGztRUQ==/109951163213659864.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="http://p1.music.126.net/FY2YmzSEnTYgP-Q-6yKzKQ==/109951163214196078.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="http://p1.music.126.net/oH2YsSkCuKzd1tOkwU0QlQ==/109951163213906153.jpg" alt="">
-                </div>
-            </div>
+            <div class="swiper-wrapper"></div>
             <div class="swiper-pagination"></div>
         </div>
         <div class="tools">
@@ -107,13 +82,6 @@
 <script src="./common/js/common.js"></script>
 <script src="ajax.js"></script>
 <script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: {
-            el: '.swiper-pagination',
-        },
-        loop: true,
-        autoplay: true
-    });
     (function () {
         $('.fit .fit-text').on('touchstart',function(){
             $(this).css({
@@ -128,10 +96,8 @@
             });
         })
     })();
-
-
-  var GetList= ( function(){ 
-      var obj=function(_id,element){
+    var GetList= ( function(){ 
+        var obj=function(_id,element){
                 this.element=element;
                 this.id=_id;
 
@@ -219,7 +185,7 @@
                         ${str}
                     </div>
                 </div>`;
-                console.log(this.element.innerHTML);
+                //console.log(this.element.innerHTML);
                     break;
                     case 4:
                 var str=`<li>
@@ -246,12 +212,42 @@
         }
         return obj
     })();
-        
 
-   
-  document.querySelectorAll(".remd").forEach(function(item,index){
+    document.querySelectorAll(".remd").forEach(function(item,index){
         new GetList(index+1,item).init();
-})
+    })
+    function getSwiperData(callback){
+        $.ajax({
+            url:'http://127.0.0.1/wyymusic/server/index.swiper.php',
+            dataType:"json",
+            type:'get',
+            data:{},
+            success:function(data){
+                var swiperDom="";
+                for(var i=0;i<data.info.length;i++){
+                    swiperDom+=`<div class="swiper-slide">
+                                    <img src="${data.info[i].img_url}" alt="">
+                                </div>`
+                }
+                console.log(swiperDom);
+                $('.swiper-wrapper').html(swiperDom);
+                callback&&callback();
+            },
+            error:function(err){
+                
+                console.error(err);
+            }
+        });
+    };
+    getSwiperData(function(){
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            loop: true,
+            autoplay: true
+        });
+    });
 </script>
 
 </html>
