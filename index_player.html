@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>wyyplayer</title>
+
+    <link rel="stylesheet" href="./common/css/font.css">
+    <link rel="stylesheet" href="./common/css/reset.css">
+    <link rel="stylesheet" href="./common/css/style.css">
+    <link rel="stylesheet" href="./common/css/swiper.min.css">
+    <link rel="stylesheet" href="./assets/css/index_player.css">
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+</head>
+
+<body>
+    <!-- <div class="test"></div> -->
+    <div id="back"></div>
+    <header>
+        <div class="inner_space">
+            <a href="#">
+                <img src="./assets/images/返回.png" alt="">
+
+            </a>
+            <div class="top_player_song">
+                <h5>逆浪千秋</h5>
+                <h6>言和</h6>
+            </div>
+        </div>
+    </header>
+    <!-- 中间旋转唱片 -->
+    <div id="inner_body">
+        <div class="play-bar"></div>
+        <div class="player_card card_1">
+            <div class=" card_2 ">
+                <div class="player_card card_3"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <!-- 拖拽条 -->
+
+        <div id="scroll">
+            <span class="time now_time">00.00</span>
+            <div id="scroll_box">
+                <div id="scroll_box_over"></div>
+                <div class="scroll_ball">
+                    <div class="scroll_ball_red"></div>
+                </div>
+            </div>
+            <span class="time all_time">04.59</span>
+        </div>
+        <!-- 底部控制 -->
+        <div id="control">
+            <ul id="controler_ul">
+                <li class="blank"></li>
+                <li class="turn">
+                    <div class="button_turn_song last_song"></div>
+                </li>
+                <li class="play">
+                    <div class="button_play_a_song play_a_song"></div>
+                </li>
+                <li class="turn">
+                    <div class="button_turn_song next_song"></div>
+                </li>
+                <li class="blank"></li>
+            </ul>
+        </div>
+    </footer>
+    <!-- <div id="audio">
+        <audio src="./assets/music/马步遥.mp3"></audio>
+    </div> -->
+</body>
+
+<!-- <script src="./common/js/iscroll.js"></script> -->
+<script src="./common/js/jquery.js"></script>
+<!-- <script src="./assets/js/Tdrag.js"></script> -->
+<script src="./assets/js/index_player_oop.js"></script>
+
+</html>

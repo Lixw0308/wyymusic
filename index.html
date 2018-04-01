@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="common/css/reset.css">
+    <link rel="stylesheet" href="common/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="common/css/iconfont.css">
+    <link rel="stylesheet" href="common/css/swiper.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="left">
+            <i class="iconfont icon-liebiao2"></i>
+        </div>
+        <div class="mid">
+            <div class="ico-wrapper">
+                <i class="iconfont icon-yinle"></i>
+                <i class="iconfont icon-buoumaotubiao15"></i>
+                <i class="iconfont icon-pinglun"></i>
+            </div>
+        </div>
+        <div class="right">
+            <i class="iconfont icon-youcecaidan"></i>
+        </div>
+    </header>
+    <section class="main">
+        <div class="swiper-container" id="swiper1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="http://p1.music.126.net/hCzuP6QOvWc6T3irijp3zw==/109951163213915707.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="http://p1.music.126.net/2d_gTxI1zsWa0wmNz3DSNw==/109951163213468979.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="http://p1.music.126.net/FY2YmzSEnTYgP-Q-6yKzKQ==/109951163214196078.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="http://p1.music.126.net/oH2YsSkCuKzd1tOkwU0QlQ==/109951163213906153.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="http://p1.music.126.net/okVWcB8SV0nm3nEeJk97Bw==/109951163213994815.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="http://p1.music.126.net/KHbdnVVMCLCzZYGNGztRUQ==/109951163213659864.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="http://p1.music.126.net/FY2YmzSEnTYgP-Q-6yKzKQ==/109951163214196078.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="http://p1.music.126.net/oH2YsSkCuKzd1tOkwU0QlQ==/109951163213906153.jpg" alt="">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="tools">
+            <ul class="tools-list">
+                <li class="item">
+                    <i class="iconfont icon-yinle"></i>
+                    <span class="name">私人FM</span>
+                </li>
+                <li class="item">
+                    <i class="iconfont icon-yinle"></i>
+                    <span class="name">私人FM</span>
+                </li>
+                <li class="item">
+                    <i class="iconfont icon-yinle"></i>
+                    <span class="name">私人FM</span>
+                </li>
+                <li class="item">
+                    <i class="iconfont icon-yinle"></i>
+                    <span class="name">私人FM</span>
+                </li>
+            </ul>
+        </div>
+        <div class="wrap">
+            <div class="remd"></div>
+            <div class="remd aaa"></div>
+            <div class="remd"></div>
+            <div class="news remd"></div>
+        </div>
+        <div class="fit"><span class="fit-text">调整栏目顺序</span></div>
+    </section>
+    <footer class="footer">
+        <div class="head-img">
+            
+        </div>
+        <div class="info">
+            <p class="name">Animals</p>
+            <p class="author">Maroon</p>
+        </div>
+        <div class="right">
+            <i class="play iconfont icon-zanting"></i>
+            <i class="list iconfont icon-liebiao2"></i>
+        </div>
+    </footer>
+</body>
+<script src="./common/js/jquery.js"></script>
+<script src="./common/js/iscroll.js"></script>
+<script src="./common/js/swiper.min.js"></script>
+<script src="./common/js/common.js"></script>
+<script src="ajax.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        loop: true,
+        autoplay: true
+    });
+    (function () {
+        $('.fit .fit-text').on('touchstart',function(){
+            $(this).css({
+                background: '#ce3d3a',
+                color: '#fff'
+            });
+            
+        }).on('touchend',function () {
+            $(this).css({
+                background: '',
+                color: '#ce3d3a'
+            });
+        })
+    })();
+
+
+  var GetList= ( function(){ 
+      var obj=function(_id,element){
+                this.element=element;
+                this.id=_id;
+
+          }
+        obj.prototype.init=function(){
+                this.getData();
+        }  
+        obj.prototype.getData=function(){
+                var _this=this;
+                  $.ajax({
+                    url:'http://127.0.0.1/wyymusic/server/server.php',
+                    dataType:"json",
+                    type:'get',
+                    data:{
+                        "id": _this.id,
+                    },
+                    success:function(str){
+                       //console.log(str);
+                    //var json= eval('('+str+')');    
+                        //console.log(json);
+                    _this.insert(str);
+                    },
+                    error:function(err){
+                       
+                        console.error(err);
+                    }
+                  });
+              
+        }
+        obj.prototype.insert=function(json){
+            switch (json.id) {
+                case 1:
+                var str=`<a href="" class="remd_li">
+                            <div class="remd_img">
+                                <img src="${json.img_src}" alt="">
+                                <span class="u_earp">${json.hot}</span>
+                            </div>
+                            <p class="remd_text">${json.des}</p>
+                        </a>`.repeat(3);
+                this.element.innerHTML=`
+                <h2 class="remd_t">主播电台 ></h2>
+                <div class="remd_songs">
+                    <div class="remd_ul">
+                        ${str}
+                    </div>
+                    <div class="remd_ul">
+                        ${str}
+                    </div>
+                </div>`
+                     break;
+                case 2:
+                var str=`<a href="" class="remd_li">
+                            <div class="remd_img">
+                                <img src="${json.img_src}" alt="">
+                               
+                            </div>
+                            <h3 class="music_name">${json.name}</h3>
+                            <p class="music_per">${json.author}</p>
+                        </a>`.repeat(3);
+                this.element.innerHTML=`
+                <h2 class="remd_t">最新音乐 ></h2>
+                <div class="remd_songs">
+                    <div class="remd_ul">
+                        ${str}
+                    </div>
+                    <div class="remd_ul">
+                       ${str}
+                    </div>
+                </div>`
+                    break;
+                case 3:
+                var str=`<a href="" class="remd_li">
+                            <div class="remd_img">
+                                <img src="${json.img_src}" alt="">
+                            </div>
+                            <p class="remd_text">${json.des}</p>
+                        </a>`.repeat(3);
+                this.element.innerHTML=`
+                <h2 class="remd_t">最新音乐 ></h2>
+                <div class="remd_songs">
+                    <div class="remd_ul">
+                        ${str}
+                    </div>
+                    <div class="remd_ul">
+                        ${str}
+                    </div>
+                </div>`;
+                console.log(this.element.innerHTML);
+                    break;
+                    case 4:
+                var str=`<li>
+                        <a href="">
+                            <div class="news_wrap">
+                                <div class="left">
+                                    <p><i>专栏</i>${json.title}</p>
+                                    <span>阅读${json.read_ac}</span>
+                                </div>
+                                <div class="right">
+                                    <img src="${json.img_src}" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </li>`.repeat(json.number);
+                    this.element.innerHTML= `<h2 class="remd_t">精选专栏 ></h2>
+                <ul class="news_list">${str}</ul>`;
+                    
+                    break;
+                
+                default:
+                    break;
+            }     
+        }
+        return obj
+    })();
+        
+
+   
+  document.querySelectorAll(".remd").forEach(function(item,index){
+        new GetList(index+1,item).init();
+})
+</script>
+
+</html>

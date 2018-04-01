@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">提交</button>
+    <script src="./common/js/jquery.js"></script>
+    <script src="ajax.js"></script>
+    <script>
+        let btn=document.querySelector("#btn");
+        let img=new Image();
+        btn.onclick=function(){
+            $.ajax({
+                url:'/info',
+                dataType:"json",
+                type:'get',
+                data:{
+                    id:'1',
+                },
+                success:function(data){
+                    console.log(data);
+                    //let json= eval('('+str+')');
+                    //console.log(json);
+                    img.src=json.src;
+                    document.documentElement.appendChild(img);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
